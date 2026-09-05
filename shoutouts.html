@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shoutouts — Rithvik Vijayaputra</title>
+<meta name="description" content="A few words for the people who made four years at Wipro worth remembering.">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<nav class="site-nav" aria-label="Primary">
+  <span class="site-nav__name">RITHVIK VIJAYAPUTRA</span>
+  <ul class="site-nav__links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="shoutouts.html" aria-current="page">Shoutouts</a></li>
+    <li><a href="connect.html">Connect</a></li>
+  </ul>
+</nav>
+
+<main id="main">
+  <header class="page-header">
+    <div class="wrap">
+      <p class="section-label">Some thank-yous</p>
+      <h1>To the people who made this journey.</h1>
+      <p>Four years is a long time to work alongside people. Here are a few words for some of them — tap a card to read the full note.</p>
+    </div>
+  </header>
+
+  <section class="wrap">
+    <div class="team-grid" id="team-grid">
+      <!-- Cards are rendered from the teammates array in assets/script.js -->
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap" style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:space-between; align-items:center; width:100%;">
+    <span>Rithvik Vijayaputra · 2021 – 2026</span>
+    <div class="site-footer__links">
+      <a href="index.html">Home</a>
+      <a href="connect.html">Connect</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Modal -->
+<div class="modal-overlay" data-modal-overlay role="dialog" aria-modal="true" aria-labelledby="modal-name">
+  <div class="modal-card">
+    <button class="modal-card__close" data-modal-close aria-label="Close">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+    <div class="modal-card__avatar" data-modal-avatar aria-hidden="true"></div>
+    <h2 class="modal-card__name" id="modal-name" data-modal-name></h2>
+    <p class="modal-card__role" data-modal-role></p>
+    <p class="modal-card__message" data-modal-message></p>
+  </div>
+</div>
+
+<script>
+  /* ------------------------------------------------------------------------
+     Edit this list with real names, roles and messages before publishing.
+     Each teammate becomes one clickable card on the page.
+     ------------------------------------------------------------------------ */
+  const teammates = [
+    {
+      name: "Name",
+      role: "Exchange Team",
+      message: "Placeholder message — swap this in for a real note about a specific memory, a lesson they taught you, or why you'll miss working with them."
+    },
+    {
+      name: "Name",
+      role: "Microsoft 365 / Cloud Team",
+      message: "Placeholder message — swap this in for a real note about a specific memory, a lesson they taught you, or why you'll miss working with them."
+    },
+    {
+      name: "Name",
+      role: "ELC Project",
+      message: "Placeholder message — swap this in for a real note about a specific memory, a lesson they taught you, or why you'll miss working with them."
+    },
+    {
+      name: "Name",
+      role: "Manager / Mentor",
+      message: "Placeholder message — swap this in for a real note about a specific memory, a lesson they taught you, or why you'll miss working with them."
+    },
+    {
+      name: "Name",
+      role: "Enterprise Exchange Team",
+      message: "Placeholder message — swap this in for a real note about a specific memory, a lesson they taught you, or why you'll miss working with them."
+    },
+    {
+      name: "Name",
+      role: "Wipro / ELC Colleague",
+      message: "Placeholder message — swap this in for a real note about a specific memory, a lesson they taught you, or why you'll miss working with them."
+    }
+  ];
+
+  const grid = document.getElementById('team-grid');
+  grid.innerHTML = teammates.map((t, i) => `
+    <button class="team-card glass-panel" data-team-card
+      data-name="${t.name.replace(/"/g, '&quot;')}"
+      data-role="${t.role.replace(/"/g, '&quot;')}"
+      data-message="${t.message.replace(/"/g, '&quot;')}"
+      aria-haspopup="dialog">
+      <span class="team-card__avatar" aria-hidden="true">${t.name.trim().charAt(0).toUpperCase()}</span>
+      <span class="team-card__name" style="display:block;">${t.name}</span>
+      <span class="team-card__role" style="display:block;">${t.role}</span>
+      <span class="team-card__preview" style="display:block;">${t.message}</span>
+      <span class="team-card__cue">Read the note &rarr;</span>
+    </button>
+  `).join('');
+</script>
+<script src="assets/script.js"></script>
+</body>
+</html>
